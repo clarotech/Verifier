@@ -1,2 +1,2 @@
 # Verifier
-A tool for validating FHIR instances against FHIR StructureDefinitions
+A tool for validating FHIR XML instances against FHIR StructureDefinitions (DSTU2 only)
