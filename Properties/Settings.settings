@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Furore.Fhir.ValidationDemo.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ProfileSourceDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="InstanceXml" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ProfileExampleDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="resColName" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">290</Value>
+    </Setting>
+    <Setting Name="resColStatus" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Status</Value>
+    </Setting>
+    <Setting Name="resColStatusWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">130</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
