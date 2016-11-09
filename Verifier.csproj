@@ -32,11 +32,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hl7.Fhir.DSTU2.Core">
-      <HintPath>..\..\..\Desktop\fhir_validator\Release\Hl7.Fhir.DSTU2.Core.dll</HintPath>
+    <Reference Include="Hl7.Fhir.DSTU2.Core, Version=0.90.6.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\Hl7.Fhir.DSTU2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.Fhir.DSTU2.Specification">
-      <HintPath>..\..\..\Desktop\fhir_validator\Release\Hl7.Fhir.DSTU2.Specification.dll</HintPath>
+    <Reference Include="Hl7.Fhir.DSTU2.Specification, Version=0.90.6.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\Hl7.Fhir.DSTU2.Specification.dll</HintPath>
     </Reference>
     <Reference Include="Hl7.FluentPath, Version=0.3.1.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
       <HintPath>packages\Hl7.FluentPath.0.3.1-alpha7\lib\net45\Hl7.FluentPath.dll</HintPath>
@@ -90,6 +92,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libraries\Hl7.Fhir.DSTU2.Core.dll" />
+    <Content Include="libraries\Hl7.Fhir.DSTU2.Core.pdb" />
+    <Content Include="libraries\Hl7.Fhir.DSTU2.Core.xml" />
+    <Content Include="libraries\Hl7.Fhir.DSTU2.Specification.dll" />
+    <Content Include="libraries\Hl7.Fhir.DSTU2.Specification.pdb" />
+    <Content Include="libraries\Hl7.Fhir.DSTU2.Specification.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
