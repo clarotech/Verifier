@@ -1,0 +1,1068 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Hl7.Fhir.DSTU2.Specification</name>
+    </assembly>
+    <members>
+        <member name="T:Hl7.Fhir.Support.Error">
+            <summary>
+            Utility class for creating and unwrapping <see cref="T:System.Exception"/> instances.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.formatMessage(System.String,System.Object[])">
+            <summary>
+            Formats the specified resource string using <see cref="M:CultureInfo.CurrentCulture"/>.
+            </summary>
+            <param name="format">A composite format string.</param>
+            <param name="args">An object array that contains zero or more objects to format.</param>
+            <returns>The formatted string.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.Argument(System.String)">
+            <summary>
+            Creates an <see cref="T:System.ArgumentException"/> with the provided properties.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.Argument(System.String,System.String)">
+            <summary>
+            Creates an <see cref="T:System.ArgumentException"/> with the provided properties.
+            </summary>
+            <param name="parameterName">The name of the parameter that caused the current exception.</param>
+            /// <param name="message">The error message that explains the reason for the exception.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.ArgumentNull(System.String)">
+            <summary>
+            Creates an <see cref="T:System.ArgumentNullException"/> with the provided properties.
+            </summary>
+            <param name="parameterName">The name of the parameter that caused the current exception.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.ArgumentNull(System.String,System.String,System.Object[])">
+            <summary>
+            Creates an <see cref="T:System.ArgumentNullException"/> with the provided properties.
+            </summary>
+            <param name="parameterName">The name of the parameter that caused the current exception.</param>
+            <param name="messageFormat">A composite format string explaining the reason for the exception.</param>
+            <param name="messageArgs">An object array that contains zero or more objects to format.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.ArgumentNullOrEmpty(System.String)">
+            <summary>
+            Creates an <see cref="T:System.ArgumentException"/> with a default message.
+            </summary>
+            <param name="parameterName">The name of the parameter that caused the current exception.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.InvalidOperation(System.String,System.Object[])">
+            <summary>
+            Creates an <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+            <param name="messageFormat">A composite format string explaining the reason for the exception.</param>
+            <param name="messageArgs">An object array that contains zero or more objects to format.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.InvalidOperation(System.Exception,System.String,System.Object[])">
+            <summary>
+            Creates an <see cref="T:System.InvalidOperationException"/>.
+            </summary>
+            <param name="innerException">Inner exception</param>
+            <param name="messageFormat">A composite format string explaining the reason for the exception.</param>
+            <param name="messageArgs">An object array that contains zero or more objects to format.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.NotSupported(System.String,System.Object[])">
+            <summary>
+            Creates an <see cref="T:System.NotSupportedException"/>.
+            </summary>
+            <param name="messageFormat">A composite format string explaining the reason for the exception.</param>
+            <param name="messageArgs">An object array that contains zero or more objects to format.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.NotImplemented(System.String,System.Object[])">
+            <summary>
+            Creates an <see cref="T:System.NotImplementedException"/>.
+            </summary>
+            <param name="messageFormat">A composite format string explaining the reason for the exception.</param>
+            <param name="messageArgs">An object array that contains zero or more objects to format.</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.NotImplemented">
+            <summary>
+            Creates an <see cref="T:System.NotImplementedException"/>.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Error.Format(System.String,Hl7.Fhir.Support.IPositionInfo)">
+            <summary>
+            Creates an <see cref="T:System.FormatException"/> with the provided properties.
+            </summary>
+            <param name="message">A string explaining the reason for the exception.</param>
+            <param name="pos">Optional line position information for the message</param>
+            <returns>The logged <see cref="T:System.Exception"/>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.ReflectionHelper.GetAttributeOnEnum``1(System.Enum)">
+            <summary>
+            Gets an attribute on an enum field value
+            </summary>
+            <typeparam name="T">The type of the attribute you want to retrieve</typeparam>
+            <param name="enumVal">The enum value</param>
+            <returns>The attribute of type T that exists on the enum value</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.ReflectionHelper.GetCollectionItemType(System.Type)">
+            <summary>
+            Gets the type of the typed collection's items.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The type of the typed collection's items.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Support.Issue.Create(System.Int32,Hl7.Fhir.Model.OperationOutcome.IssueSeverity,Hl7.Fhir.Model.OperationOutcome.IssueType)">
+            <summary>Factory method.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.GenerateSnapshotBaseComponents(Hl7.Fhir.Model.StructureDefinition,System.Boolean)">
+            <summary>Initialize the <see cref="P:Hl7.Fhir.Model.ElementDefinition.Base"/> components of the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Snapshot"/> component.</summary>
+            <param name="structureDef">A <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance with a valid snapshot component.</param>
+            <param name="force">If <c>true</c>, then always (re-)generate the Base component, even if it exists.</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.ensureBaseComponents(System.Collections.Generic.IList{Hl7.Fhir.Model.ElementDefinition},System.String,System.Boolean)">
+            <summary>(Re-)generate the <see cref="P:Hl7.Fhir.Model.ElementDefinition.Base"/> components.</summary>
+            <param name="elements">A list of <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instances.</param>
+            <param name="baseProfileUrl">The canonical url of the base profile, as defined by the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Base"/> property.</param>
+            <param name="force">If <c>true</c>, then always (re-)generate the Base component, even if it exists.</param>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.Outcome">
+            <summary>
+            Returns <c>null</c> if the snapshot generation completed without issues.
+            Otherwise returns a descriptive <see cref="T:Hl7.Fhir.Model.OperationOutcome"/> instance with a list of encountered issues.
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.ElementDefnMerger">
+            <summary>
+            Private static helper for <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator"/>.
+            Merge two <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instances and all their properties.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.ElementDefnMerger.Merge(Hl7.Fhir.Specification.Snapshot.SnapshotGenerator,Hl7.Fhir.Model.ElementDefinition,Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Merges two <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instances. Existing diff properties override associated snap properties.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.ElementDefnMerger.OnConstraint(Hl7.Fhir.Model.Element)">
+            <summary>Notify clients about a snapshot element with differential constraints.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.ElementDefnMerger.mergePrimitiveAttribute``1(``0,``0,System.Boolean)">
+            <summary>
+            Merges two FHIR primitives. Normally this means the diff overrides the snap, but if the diffd is a
+            string, and it start with ellipsis ('...'), the diff is appended to the snap.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="snap"></param>
+            <param name="diff"></param>
+            <param name="allowAppend"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.Settings">
+            <summary>Returns the snapshot generator configuration settings.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.CurrentProfileUri">
+            <summary>Returns a reference to the profile uri of the currently generating snapshot, or <c>null</c>.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.Update(Hl7.Fhir.Model.StructureDefinition)">
+            <summary>
+            (Re-)generate the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Snapshot"/> component of the specified <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance.
+            Resolve the associated base profile snapshot and merge the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Differential"/> component.
+            </summary>
+            <param name="structure">A <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance.</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.Generate(Hl7.Fhir.Model.StructureDefinition)">
+            <summary>
+            Generate the snapshot element list of the specified <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance.
+            Resolve the associated base profile snapshot and merge the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Differential"/> component.
+            Returns the expanded element list.
+            Does not modify the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Snapshot"/> property of the specified instance.
+            </summary>
+            <param name="structure">A <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance.</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.ExpandElement(Hl7.Fhir.Model.IElementList,Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Given a list of element definitions, expand the definition of a single element.</summary>
+            <param name="elements">A <see cref="T:Hl7.Fhir.Model.StructureDefinition.SnapshotComponent"/> or <see cref="T:Hl7.Fhir.Model.StructureDefinition.DifferentialComponent"/> instance.</param>
+            <param name="element">The element to expand. Should be part of <paramref name="elements"/>.</param>
+            <returns>A new, expanded list of <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instances.</returns>
+            <exception cref="T:System.ArgumentException">The specified element is not contained in the list.</exception>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.ExpandElement(System.Collections.Generic.IList{Hl7.Fhir.Model.ElementDefinition},Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Given a list of element definitions, expand the definition of a single element.</summary>
+            <param name="elements">A list of <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instances, taken from snapshot or differential.</param>
+            <param name="element">The element to expand. Should be part of <paramref name="elements"/>.</param>
+            <returns>A new, expanded list of <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instances.</returns>
+            <exception cref="T:System.ArgumentException">The specified element is not contained in the list.</exception>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.generate(Hl7.Fhir.Model.StructureDefinition)">
+            <summary>
+            Expand the differential component of the specified structure and return the expanded element list.
+            The given structure is not modified.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.expandElement(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator)">
+            <summary>
+            Expand the currently active element within the specified <see cref="T:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator"/> instance.
+            If the element has a name reference, then merge from the targeted element.
+            Otherwise, if the element has a custom type profile, then merge it.
+            </summary>
+        </member>
+        <member name="E:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.Constraint">
+            <summary>
+            An event that notifies clients when a differential constraint has been processed.
+            The specified <see cref="T:Hl7.Fhir.Model.Element"/> instance is the result of merging the base
+            element with the associated differential constraint(s).
+            The event handler can inspect and optionally modify the element.
+            The result will be included in the snapshot.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.OnConstraint(Hl7.Fhir.Model.Element)">
+            <summary>Raise the <see cref="E:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.Constraint"/> event to notify the client that a differential constraint has been processed.</summary>
+            <param name="element">A reference to the snapshot element with merged differential constraints.</param>
+        </member>
+        <member name="E:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.PrepareBaseProfile">
+            <summary>
+            An event that notifies clients when a base profile has been resolved.
+            </summary>
+            <remarks>
+            The <see cref="P:Hl7.Fhir.Specification.Snapshot.SnapshotBaseProfileEventArgs.BaseProfile"/> event argument returns a
+            reference to the original base profile instance as returned by the artifact source.
+            Modifications to this instance will affect the original cached artifact
+            and will be visible to other consumers of the artifact source.
+            </remarks>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.OnPrepareBaseProfile(Hl7.Fhir.Model.StructureDefinition,Hl7.Fhir.Model.StructureDefinition)">
+            <summary>
+            Raise the <see cref="E:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.PrepareBaseProfile"/> event to notify the client
+            when the associated base profile has been resolved and prepared for merging.
+            </summary>
+            <param name="profile">A profile <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance.</param>
+            <param name="baseProfile">The associated base profile <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance.</param>
+        </member>
+        <member name="E:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.PrepareElement">
+            <summary>
+            An event that notifies clients when the generator initializes a new snapshot element.
+            The specified element is cloned from the base profile and the base path has been fixed.
+            The event handler can inspect and optionally modify the element.
+            After the event handler returns, the snapshot generator merges the associated
+            differential constraints, if they exist.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.OnPrepareElement(Hl7.Fhir.Model.ElementDefinition,Hl7.Fhir.Model.StructureDefinition,Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Raise the <see cref="E:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.PrepareElement"/> event to notify the client when an element definition is being prepared for merging.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorAnnotations.CreatedBySnapshotGeneratorAnnotation">
+            <summary>Annotation to mark generated elements, so we can prevent duplicate re-generation.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorAnnotations.SetCreatedBySnapshotGenerator(Hl7.Fhir.Model.Element)">
+            <summary>Marks the specified element as generated by the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator"/>.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorAnnotations.IsCreatedBySnapshotGenerator(Hl7.Fhir.Model.Element)">
+            <summary>Determines if the specified element was created by the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator"/>.</summary>
+            <param name="elem">A FHIR <see cref="T:Hl7.Fhir.Model.Element"/>.</param>
+            <returns><c>true</c> if the element was created by the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator"/>, or <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorAnnotations.SnapshotElementDefinitionAnnotation">
+            <summary>For annotating a differential element definition with a reference to the associated generated snapshot element definition.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorAnnotations.SetSnapshotRootElementAnnotation(Hl7.Fhir.Model.StructureDefinition,Hl7.Fhir.Model.ElementDefinition)">
+            <summary>
+            Annotate the root <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance in the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Differential"/> component
+            with a reference to the generated snapshot root <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorAnnotations.GetSnapshotRootElementAnnotation(Hl7.Fhir.Model.StructureDefinition)">
+            <summary>
+            Retrieve a reference to a previously generated snapshot root <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance
+            from the root <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance in the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Differential"/> component.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorAnnotations.ClearSnapshotElementAnnotations(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Remove all <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorAnnotations.SnapshotElementDefinitionAnnotation"/> instances from the specified <see cref="T:Hl7.Fhir.Model.ElementDefinition"/>.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack">
+            <summary>Internal helper class to detect and prevent recursive snapshot generation.</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.SnapshotRecursionStackState.ProfileUri">
+            <summary>Canonical uri of a profile for which the snapshot is being generated.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.SnapshotRecursionStackState.Navigator">
+            <summary>
+            Reference to the <see cref="T:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator"/> that is generating the snapshot.
+            Allows access to already generated elements.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.OnStartRecursion">
+            <summary>Initialize the recursion stack before generating a single snapshot element.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.OnFinishRecursion">
+            <summary>Verify and clear the recursion stack after generating a single snapshot element.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.OnBeforeGenerateSnapshot(System.String)">
+            <summary>Initialize the recursion stack before generating a full snapshot.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.OnAfterGenerateSnapshot(System.String)">
+            <summary>Verify and clear the recursion stack after generating a full snapshot.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.OnBeforeExpandTypeProfile(System.String,System.String)">
+            <summary>Verify recursive snapshot generation of the external profile with the specified url.</summary>
+            <exception cref="T:System.NotSupportedException">Thrown when detecting recursive snapshot generation.</exception>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.OnAfterExpandTypeProfile(System.String,System.String)">
+            <summary>Signal that recursive snapshot generation of an external profile has finished.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.CurrentProfileUri">
+            <summary>Returns the uri of the profile for which the snapshot component is currently being generated, or <c>null</c>.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack.IsGenerating(System.String)">
+            <summary>Determines if the snapshot of the profile with the specified uri is being generated.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorBaseComponentExtensionMethods">
+            <summary>Internal extension method for initializing the <see cref="P:Hl7.Fhir.Model.ElementDefinition.Base"/> component.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorBaseComponentExtensionMethods.EnsureBaseComponent(Hl7.Fhir.Model.ElementDefinition,Hl7.Fhir.Model.ElementDefinition,System.Boolean)">
+            <summary>Ensure that the <see cref="P:Hl7.Fhir.Model.ElementDefinition.Base"/> component is properly initialized.</summary>
+            <param name="elem">An <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance.</param>
+            <param name="baseElem">The associated base <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance.</param>
+            <param name="force">If <c>true</c>, then always (re-)generate the Base component, even if it exists.</param>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions">
+            <summary>Extension methods for the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator"/> class.</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.CHANGED_BY_DIFF_EXT">
+            <summary>The canonical url of the extension definition that marks snapshot elements with associated differential constraints.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.SetChangedByDiff(Hl7.Fhir.Model.IExtendable,System.Boolean)">
+            <summary>Mark the snapshot element as changed by the differential.</summary>
+            <param name="element">An <see cref="T:Hl7.Fhir.Model.IExtendable"/> instance.</param>
+            <param name="value">An optional boolean value (default <c>true</c>).</param>
+            <remarks>Sets the <see cref="F:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.CHANGED_BY_DIFF_EXT"/> extension to store the boolean flag.</remarks>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.GetChangedByDiff(Hl7.Fhir.Model.IExtendable)">
+            <summary>Determines wether the snapshot element was marked as changed by the differential.</summary>
+            <param name="element">An <see cref="T:Hl7.Fhir.Model.IExtendable"/> instance.</param>
+            <returns>A boolean value, or <c>null</c>.</returns>
+            <remarks>Gets the boolean flag from the <see cref="F:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.CHANGED_BY_DIFF_EXT"/> extension, if it exists.</remarks>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.RemoveChangedByDiff(Hl7.Fhir.Model.IExtendable)">
+            <summary>Removes the <see cref="F:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.CHANGED_BY_DIFF_EXT"/> extension from the specified element.</summary>
+            <param name="element">An <see cref="T:Hl7.Fhir.Model.IExtendable"/> instance.</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.RemoveAllChangedByDiff(Hl7.Fhir.Model.Element)">
+            <summary>Removes all instances of the <see cref="F:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.CHANGED_BY_DIFF_EXT"/> extension from the specified element and it's child elements, recursively.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.RemoveAllChangedByDiff``1(System.Collections.Generic.IList{``0})">
+            <summary>Removes all instances of the <see cref="F:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.CHANGED_BY_DIFF_EXT"/> extension from all the specified elements and their children, recursively.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorExtensions.ClearAllExtensions(Hl7.Fhir.Model.ElementDefinition,System.String)">
+            <summary>Removes a specific extension from the snapshot element definition and it's descendant elements, recursively.</summary>
+            <param name="elemDef">An <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance.</param>
+            <param name="uri">The canonical url of the extension.</param>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.DifferentialTreeConstructor">
+            <summary>
+            Differential structures may contain paths that "skip" over parents. For our profile expansion logic,
+            it's easier to have the skipped parents present. This class will insert these missing parent.
+            Notice that these parent are just "stand ins", there's no
+            slicing or ElementDefn information associated with them, so they should not have any 
+            influence on the final snapshot form.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.DifferentialTreeConstructor.MakeTree(System.Collections.Generic.List{Hl7.Fhir.Model.ElementDefinition})">
+            <summary>Create a valid tree structure from a sparse differential element list by adding missing parent element definitions.</summary>
+            <returns>A tree structure representing the differential component.</returns>
+            <remarks>This method returns a new list of element definitions. The input elements list is not modified.</remarks>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.ElementMatcher.MatchInfo.BaseBookmark">
+            <summary>Represents an element in the base profile.</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.ElementMatcher.MatchInfo.DiffBookmark">
+            <summary>Represents a matching element in the differential.</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.ElementMatcher.MatchInfo.Action">
+            <summary>Indicates how to handle this match: Merge | Add | Slice</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.ElementMatcher.MatchAction.Merge">
+            <summary>Merge the elementdefinition in snap with the diff</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.ElementMatcher.MatchAction.Add">
+            <summary>Add the elementdefinition to slice (with diff merged to the slicing entry base definition)</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.ElementMatcher.MatchAction.Slice">
+            <summary>Begin a new slice with this slice as slicing entry</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.ElementMatcher.MatchAction.New">
+            <summary>Introduce a new element (for core resource and datatype definitions).</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.ElementMatcher.Match(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator)">
+            <summary>
+            Will match up the children of the current element in diffNav to the children of the element in snapNav.
+            </summary>
+            <param name="snapNav"></param>
+            <param name="diffNav"></param>
+            <returns>Returns a list of Bookmark combinations, the first bookmark pointing to an element in the base,
+            the second a bookmark in the diff that matches the bookmark in the base.</returns>
+            <remarks>Will match slices to base elements, re-sliced slices to slices and type-slice shorthands to choice elements.
+            Note that this function may expand snapNav when it encounters paths in the differential that move into the complex types
+            of one of snap's elements.  (NO NEED, it just has to match direct children, not deeper)
+            This function assumes the differential is not sparse: it must have parent nodes for all child constraint paths.
+            </remarks>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.ElementMatcher.constructMatch(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator)">
+            <summary>
+            Creates matches between the elements pointed to by snapNav and diffNav. After returning, both
+            navs will be located on the last element that was matched (e.g. in a slicing group)
+            </summary>
+            <param name="snapNav"></param>
+            <param name="diffNav"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.ElementMatcher.listChoiceElements(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator)">
+            <summary>List all names of nodes in the current navigator that are choice ('[x]') elements.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotConstraintEventArgs">
+            <summary>Event arguments for the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotConstraintHandler"/> event delegate.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotConstraintEventArgs.Element">
+            <summary>Returns a reference to a constrained snapshot element definition or property.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotConstraintHandler">
+            <summary>A delegate type for hooking up <see cref="E:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.Constraint"/> events.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotBaseProfileEventArgs">
+            <summary>Event arguments for the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotBaseProfileHandler"/> event delegate.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotBaseProfileEventArgs.Profile">
+            <summary>Returns a reference to a profile.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotBaseProfileEventArgs.BaseProfile">
+            <summary>Returns a reference to the associated base profile.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotBaseProfileHandler">
+            <summary>A delegate type for hooking up <see cref="E:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.PrepareBaseProfile"/> events.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotElementEventArgs">
+            <summary>Event arguments for the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotElementHandler"/> event delegate.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotElementEventArgs.Element">
+            <summary>Returns a reference to an element definition.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotElementEventArgs.BaseElement">
+            <summary>Returns a reference to the associated base element definition.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotElementEventArgs.BaseStructure">
+            <summary>Returns a reference to the associated base structure definition. The snapshot component contains the <see cref="P:Hl7.Fhir.Specification.Snapshot.SnapshotElementEventArgs.BaseElement"/> instance.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings">
+            <summary>Configuration settings for the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator"/> class.</summary>
+        </member>
+        <member name="F:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings.Default">
+            <summary>Default configuration settings for the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator"/> class.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings.#ctor">
+            <summary>Default ctor.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings.#ctor(Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings)">
+            <summary>Clone ctor. Generates a new instance with the same state as the specified instance.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings.Clone">
+            <summary>Returns an exact clone of the current configuration settings instance.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings.CopyTo(Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings)">
+            <summary>Copy all configuration settings to another instance.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings.ExpandExternalProfiles">
+            <summary>
+            If enabled (default), the snapshot generator will automatically generate the snapshot component of any referenced external profiles on demand if necessary.
+            If disabled, then skip the merging of any external type profiles without a snapshot component.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings.ForceExpandAll">
+            <summary>
+            EXPERIMENTAL!
+            Force expansion of all external profiles, disregarding any existing snapshot components.
+            If enabled, the snapshot generator will re-generate the snapshot components of all the core resource and datatype profiles
+            as well as of all other referenced external profiles.
+            Re-generated snapshots are annotated to prevent duplicate re-generation (assuming a CachedArtifactSource).
+            If disabled (default), then the snapshot generator relies on the existing snapshot components.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Snapshot.SnapshotGeneratorSettings.MarkChanges">
+            <summary>
+            Enable this setting to mark all elements in the snapshot that are constrained with respect to the base profile.
+            The snapshot generator will decorate all changed elements with a special extension
+            (canonical url "http://hl7.org/fhir/StructureDefinition/changedByDifferential").
+            <br />
+            Note that this extension only applies to the containing profile and should NOT be inherited by derived profiles.
+            The FHIR API snapshot generator explicitly removes and re-generates these extensions for each profile.
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.CachedResolver">
+            <summary>
+            Reads FHIR artifacts (Profiles, ValueSets, ...) using a list of other IArtifactSources
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.CachedResolver.#ctor(Hl7.Fhir.Specification.Source.IResourceResolver,System.Int32)">
+            <summary>Artifact resolver decorator to cache loaded resources in memory.</summary>
+            <param name="source">ArtifactSource that will be used to get data from on a cache miss</param>
+            <param name="cacheDuration">Duration before trying to refresh the cache, in seconds</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.CachedResolver.InvalidateUri(System.String)">
+            <summary>Remove the resource with the specified uri from the cache, if it exists.</summary>
+            <param name="url">The resource uri.</param>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.CachedResolver.InvalidateCanonicalUri(System.String)">
+            <summary>Remove the resource with the specified canonical uri from the cache, if it exists.</summary>
+            <param name="url">The canonical resource uri.</param>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.CachedResolver.Clear">
+            <summary>Clear the cache by removing all existing cache entries.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventArgs">
+            <summary>Event arguments for the <see cref="T:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventHandler"/> delegate.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventArgs.Url">
+            <summary>Returns the url of the cached resource.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventArgs.Resource">
+            <summary>Returns a reference to the cached resource.</summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventHandler">
+            <summary>Handles the <see cref="E:Hl7.Fhir.Specification.Source.CachedResolver.Load"/> event that is fired when a new resources is loaded into the cache.</summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:Hl7.Fhir.Specification.Source.CachedResolver.Load">
+            <summary>Occurs when a resource is loaded into the cache.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Source.CachedResolver.CacheEntry`1.Expired">
+            <summary>Returns a boolean value that indicates if the cache entry is expired.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.IConformanceSource.ListResourceUris(System.Nullable{Hl7.Fhir.Model.ResourceType})">
+            <summary>
+            List all resource uris for the resources managed by the source, optionally filtered by type.
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.IConformanceSource.FindValueSetBySystem(System.String)">
+            <summary>
+            Find ValueSets that define codes for a Codesystem with the given system uri
+            </summary>
+            <param name="system"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.IConformanceSource.FindConceptMaps(System.String,System.String)">
+            <summary>
+            Find ConceptMaps which map from the given sourceUri to the given targetUri
+            </summary>
+            <param name="sourceUri">An uri that is either the source uri, source ValueSet system or source StructureDefinition canonical url for the map.</param>
+            <param name="targetUri">An uri that is either the target uri, target ValueSet system or target StructureDefinition canonical url for the map.</param>
+            <returns></returns>
+            <remarks>Either sourceUri may be null, or targetUri, but not both</remarks>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.IConformanceSource.FindNamingSystem(System.String)">
+            <summary>
+            Finds a NamingSystem resource by matching any of a system's UniqueIds
+            </summary>
+            <param name="uniqueid"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.MultiResolver">
+            <summary>
+            Reads FHIR artifacts (Profiles, ValueSets, ...) from a list of other IArtifactSources
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.MultiResolver.#ctor(System.Collections.Generic.IEnumerable{Hl7.Fhir.Specification.Source.IResourceResolver})">
+            <summary>
+            Custom implementation of the artifact resolver
+            </summary>
+            <param name="sources">A custom set of IArtifact sources. Resolving occurs in order of input</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.MultiResolver.#ctor(Hl7.Fhir.Specification.Source.IResourceResolver[])">
+            <summary>
+            Custom implementation of the artifact resolver
+            </summary>
+            <param name="sources">A custom set of IArtifact sources. Resolving occurs in order of input</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.ResourceResolverExtensions.FindValueSet(Hl7.Fhir.Specification.Source.IResourceResolver,System.String)">
+            <summary>
+            Tries to locate a valueset using a combined algorithm: first, the uri is used to find a valueset by system.
+            If that fails, the valueset is searched for by canonical url. Failing that, the function tries to locate the
+            valueset by resource url.
+            </summary>
+            <param name="source"></param>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.ResourceResolverExtensions.GetStructureDefinitionForTypeCode(Hl7.Fhir.Specification.Source.IResourceResolver,Hl7.Fhir.Model.Code{Hl7.Fhir.Model.FHIRDefinedType})">
+            <summary>Resolve a <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> from a TypeRef.Code element, handle unknown/custom core types.</summary>
+            <param name="resolver">An <see cref="T:Hl7.Fhir.Specification.Source.IArtifactSource"/> reference.</param>
+            <param name="typeCodeElement">A <see cref="P:Hl7.Fhir.Model.ElementDefinition.TypeRefComponent.CodeElement"/> reference.</param>
+            <returns>A <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance, or <c>null</c>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.WebResolver.#ctor">
+            <summary>Default constructor.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.WebResolver.#ctor(System.Func{System.Uri,Hl7.Fhir.Rest.FhirClient})">
+            <summary>Create a new <see cref="T:Hl7.Fhir.Specification.Source.WebResolver"/> instance that supports a custom <see cref="T:Hl7.Fhir.Rest.FhirClient"/> implementation.</summary>
+            <param name="fhirClientFactory">
+            Factory function that should create a new <see cref="T:Hl7.Fhir.Rest.FhirClient"/> instance for the specified <see cref="T:System.Uri"/>.
+            If this parameter equals <c>null</c>, then the new instance creates a default <see cref="T:Hl7.Fhir.Rest.FhirClient"/> instance.
+            </param>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.SourceFactory">
+            <summary>
+            Reads FHIR artifacts (Profiles, ValueSets, ...) using a list of other IArtifactSources
+            </summary>    
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.SourceFactory.CreateDefault">
+            <summary>
+            Creates a default non-cached ArtifactResolver
+            Default only searches in the executable directory files and the core zip. 
+            This non-cached resolver is primary for testing purposes.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.SourceFactory.CreateOffline">
+            <summary>
+            Creates an offline non-cached ArtifactResolver
+            Default only searches in the executable directory files and the core zip. 
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.SourceFactory.CreateCachedDefault">
+            <summary>
+            Creates a default cached ArtifactResolver
+            Default only searches in the executable directory files and the core zip. 
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.SourceFactory.CreateCachedOffline">
+            <summary>
+            Creates a default cached ArtifactResolver
+            Default only searches in the executable directory files and the core zip. 
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.ZipSource">
+            <summary>
+            Reads FHIR artifacts (Profiles, ValueSets, ...) from validation.zip/validation-min.zip
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Source.ZipSource.Mask">
+            <summary>
+            Gets or sets the search string to match against the names of files in the ZIP archive.
+            The source will only provide resources from files that match the specified mask.
+            The source will ignore all files that don't match the specified mask.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.ZipSource.prepare">
+            <summary>
+            Unpacks the zip-file and constructs a new FileArtifactSource on the unzipped directory
+            </summary>
+            <remarks>This is an expensive operations and should be run once. As well, it unpacks files on the
+            file system and is not thread-safe.</remarks>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.DirectorySource">
+            <summary>
+            Reads FHIR artifacts (Profiles, ValueSets, ...) from directories with individual files
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Source.DirectorySource.Mask">
+            <summary>
+            Gets or sets the search string to match against the names of files in the content directory.
+            The source will only provide resources from files that match the specified mask.
+            The source will ignore all files that don't match the specified mask.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Source.DirectorySource.SpecificationDirectory">
+            <summary>
+            The default directory this artifact source will access for its files.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.DirectorySource.prepareFiles">
+            <summary>
+            Prepares the source by reading all files present in the directory (matching the mask, if given)
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.DirectorySource.prepareResources">
+            <summary>
+            Scan all xml files found by prepareFiles and find conformance resources + their id
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.IResourceResolver.ResolveByUri(System.String)">
+            <summary>
+            Find resources based on its relative or absolute uri.
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.IResourceResolver.ResolveByCanonicalUri(System.String)">
+            <summary>
+            Find a (conformance) resource based on its canonical uri
+            </summary>
+            <param name="uri"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.ResourceStreamScanner">
+            <summary>
+            Internal class which is able to scan a (possibly) large Xml FHIR (conformance) resource from a given stream
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Source.ZipCacher">
+            <summary>
+            Internal class which gives access to files within a zip whilst avoiding unpacking that zip on every access.
+            The ZipCacher will unpack the zip once and store the contents in a cache directory, serving files from this cache.
+            When the ZipCacher detects the zip is more recent than its cache, it will update the cache directory automatically.
+            
+            The ZipCacher will either use a different cache for each instance, or -given a persistent "cache key"- reuse the
+            cache from a previous instantiation of ZipCacher. When using a shared cache over multiple ZipCachers with the/
+            same cacheKey, keep in mind that it uses the filesystem for its state, and is not thread-safe.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.ZipCacher.GetContents">
+            <summary>
+            Returns a list of files present in the zip, returning a full path to the file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.ZipCacher.IsActual">
+            <summary>
+            Returns true if the ZipCacher has an up-to-date cache for the zip file it manages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Source.ZipCacher.getCachedZipDirectory">
+            <summary>
+            Gets the cache directory, but does not create one if it does not yet exist
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Terminology.ITerminologyService.ValidateCode(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Will check whether the a code is a member of the given valueset.
+            </summary>
+            <param name="uri">Canonical url of the ValueSet (ValueSet.url)</param>
+            <param name="code">Code to check</param>
+            <param name="system">System for the code. Optional.</param>
+            <param name="display">If given, will check whether the given display is valid for the code</param>
+            <param name="abstractAllowed">If true, then an abstract code is allowed to be used in the context of the code that is being validated.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Hl7.Fhir.Specification.Navigation.ProfileReference">
+            <summary>Represents a reference to an element type profile.</summary>
+            <remarks>Useful to parse complex profile references of the form "canonicalUrl#elementName".</remarks>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileReference.FromUrl(System.String)">
+            <summary>Initialize a new <see cref="T:Hl7.Fhir.Specification.Navigation.ProfileReference"/> instance from the specified url.</summary>
+            <param name="url">A resource reference to a profile.</param>
+            <returns>A new <see cref="T:Hl7.Fhir.Specification.Navigation.ProfileReference"/> structure.</returns>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Navigation.ProfileReference.CanonicalUrl">
+            <summary>Returns the canonical url of the profile.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Navigation.ProfileReference.ElementName">
+            <summary>Returns an optional profile element name, if included in the reference.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Navigation.ProfileReference.IsComplex">
+            <summary>Returns <c>true</c> if the profile reference includes an element name, <c>false</c> otherwise.</summary>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.PathName">
+            <summary>
+            Get the name of the current node, based on the last part of the part
+            </summary>
+            <returns>The name or String.Empty if the navigator is not located on a node</returns>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.ParentPath">
+            <summary>
+            Get the parent path of the current node
+            </summary>
+            <returns>The name or String.Empty if the navigator is not located on a node</returns>
+        </member>
+        <member name="P:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.Path">
+            <summary>
+            Get the full path of the current node
+            </summary>
+            <returns>The path or String.Empty if the navigator is not located on a node</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.InsertBefore(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>
+            Inserts the element passed in as a sibling to the element the navigator is currently on. 
+            The navigator will move to the inserted element.
+            </summary>
+            <param name="sibling"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.InsertAfter(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>
+            Inserts the element passed in as a sibling to the element the navigator is currently on. 
+            The navigator will move to the inserted element.
+            </summary>
+            <param name="sibling"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.InsertFirstChild(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>
+            Inserts the element passed in as a child of the element the navigator is currently on. 
+            The navigator will move to the inserted element.
+            </summary>
+            <param name="child"></param>
+            <returns></returns>
+            <remarks>You can only insert a child for an element does not have children yet.</remarks>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.ToListOfElements">
+            <summary>
+            Returns the list of elements passed to the constructor, including any changes made to the list using
+            the modification functions of the navigator.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsSibling(System.String,System.String)">
+            <summary>Determines if the specified element paths represent sibling elements.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsDirectChildPath(System.String,System.String)">
+            <summary>Determines if the specified child path represent a direct child of the specified parent path.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsChildPath(System.String,System.String)">
+            <summary>Determines if the specified child path represent a (direct/grand) child of the specified parent path.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsRenamedChoiceElement(System.String,System.String)">
+            <summary>Determines if an element name matches a choice element name in the base profile.</summary>
+            <param name="baseName">A base element name.</param>
+            <param name="newName">An derived element name.</param>
+            <example>Match "value[x]" and "valueCodeableConcept"</example>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsCandidateBaseElementPath(System.String,System.String)">
+            <summary>Determines if the specified element path matches a base element path.</summary>
+            <param name="baseElementPath">A base element path.</param>
+            <param name="elementPath">An derived element path.</param>
+            <example>
+            IsCandidateBaseElementPath("DomainResource.meta", "Patient.meta")
+            IsCandidateBaseElementPath("Extension.value[x]", "Extension.valueBoolean")
+            IsCandidateBaseElementPath("Element.id", "Extension.url.id")
+            </example>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsRootPath(System.String)">
+            <summary>Determines if the specified element path represents a root element.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsExtensionPath(System.String)">
+            <summary>Determines if the specified element path represents a (modifier) extension element.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.GetPathRoot(System.String)">
+            <summary>Returns the root component of the specified element path.</summary>
+            <param name="path">An element path.</param>
+            <returns>A root path.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.ReplacePathRoot(System.String,System.String)">
+            <summary>Replace the root component of the specified element path.</summary>
+            <param name="path">An element path.</param>
+            <param name="newRoot">The new path root.</param>
+            <returns>An element path.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsResliceName(System.String)">
+            <summary>Determines if the specified element name represents a reslice: "slice/reslice".</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.GetBaseSliceName(System.String)">
+            <summary>Extracts the name of the base slice from a reslicing constraint name.</summary>
+            <returns>The name of the base slice, or <c>null</c>.</returns>
+            <example>
+            <code>GetBaseSliceName("slice/reslice")</code>
+            Returns: "slice"
+            </example>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NavModificationExtensions.CopyChildren(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator)">
+            <summary>
+            Insert the children of the source navigator under the node pointed to by this Navigator.
+            </summary>
+            <param name="dest"></param>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToChild(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Move the navigator to the first child element with the specified name, if it exists.</summary>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToNext(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Move the navigator to the first following sibling element with the specified name, if it exists.</summary>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToNextTypeSlice(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Move the navigator to the next type slice of the (choice) element with the specified name, if it exists.</summary>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.IsCandidateTypeSlice(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Determines if the element with the specified name represents a type slice for the current (choice) element.</summary>
+            <returns><c>true</c> if the element name represents a type slice of the current element, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToLastSlice(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Move to last direct child element with same path as current element.</summary>
+            <param name="nav">An <see cref="T:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator"/> instance.</param>
+            <param name="sliceName">The optional target slice name, or <c>null</c>. Used for reslicing.</param>
+            <returns><c>true</c> if the cursor has moved at least a single element, <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToNextSlice(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>
+            If the current element has the specified name, then maintain position and return true.
+            Otherwise move to the next sibling element with the specified slice name, if it exists.
+            </summary>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToPrevious(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Move the navigator to the first preceding sibling element with the specified name, if it exists.</summary>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveTo(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Move the navigator to the first preceding or following sibling element with the specified name, if it exists.</summary>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveTo(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Move the navigator to the specified element.</summary>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.JumpToFirst(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Move the navigator to the first element with the specified path.</summary>
+            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.Find(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+            <summary>Find all existing elements with the specified path.</summary>
+            <returns>A sequence of <see cref="T:Hl7.Fhir.Specification.Navigation.Bookmark"/> values.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.Rebase(Hl7.Fhir.Model.IElementList,System.String)">
+            <summary>
+            Rewrites the Path's of the elements in a structure so they are based on the given path: the root
+            of the given structure will become the given path, it's children will be relocated below that path
+            </summary>
+            <param name="root">The structure that will be rebased on the path</param>
+            <param name="path">The path to rebase the structure on</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.Rebase(System.Collections.Generic.IList{Hl7.Fhir.Model.ElementDefinition},System.String)">
+            <summary>
+            Rewrites the Path's of the elements in a structure so they are based on the given path: the root
+            of the given structure will become the given path, it's children will be relocated below that path
+            </summary>
+            <param name="elements">A list of element definitions that will be rebased on the path.</param>
+            <param name="path">The path to rebase the structure on.</param>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.PrimaryType(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Returns the primary element type, if it exists.</summary>
+            <param name="defn">An <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance.</param>
+            <returns>A <see cref="T:Hl7.Fhir.Model.ElementDefinition.TypeRefComponent"/> instance, or <c>null</c>.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.PrimaryTypeProfiles(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Enumerates the type profile references of the primary element type.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.PrimaryTypeProfile(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Returns the first type profile reference of the primary element type, if it exists, or <c>null</c></summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.PrimaryTypeCode(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Returns the type code of the primary element type, or <c>null</c>.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.IsMappedExtension(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Returns <c>true</c> if the element represents an extension with a custom extension profile url, or <c>false</c> otherwise.</summary>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.IsReference(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Determines if the specified element definition represents a <see cref="T:Hl7.Fhir.Model.ResourceReference"/>.</summary>
+            <param name="defn">An <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance.</param>
+            <returns><c>true</c> if the instance defines a reference, or <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.IsReference(Hl7.Fhir.Model.ElementDefinition.TypeRefComponent)">
+            <summary>Determines if the specified type reference represents a <see cref="T:Hl7.Fhir.Model.ResourceReference"/>.</summary>
+            <param name="typeRef">A <see cref="T:Hl7.Fhir.Model.ElementDefinition.TypeRefComponent"/> instance.</param>
+            <returns><c>true</c> if the instance defines a reference, or <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Specification.Navigation.ProfileNavigationExtensions.IsChoice(Hl7.Fhir.Model.ElementDefinition)">
+            <summary>Determines if the specified element definition represents a type choice element by verifying that the element name ends with "[x]".</summary>
+            <param name="defn">An <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance.</param>
+            <returns><c>true</c> if the instance defines a type choice element, or <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:Hl7.Fhir.Validation.ElementNavigatorParsingExtensions">
+            <summary>
+            A class to do basic parsing of POCO classes from an IElementNavigator.  Can be replaced by the real
+            IElementNavigator-based PocoParser when we have that piece of infrastructure ready.
+            </summary>
+        </member>
+        <member name="M:Hl7.Fhir.Validation.ElementNavigatorParsingExtensions.ParseBindable(Hl7.ElementModel.IElementNavigator,Hl7.Fhir.Model.FHIRDefinedType)">
+            <summary>
+            Parses a bindeable type into either a Coding (code, Coding, Quantity, string, uri) or CodeableConcept
+            </summary>
+            <param name="instance"></param>
+            <param name="codedType"></param>
+            <returns>An object, which is either a Coding or CodeableConcept</returns>
+        </member>
+        <member name="M:Hl7.Fhir.Validation.ProfileAssertion.Resolve">
+            <summary>
+            Resolves the StructureDefinitions referred to by the given canonicals, and adds them
+            to the list of StructureDefinitions available to the preprocessor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Validation.ProfileAssertion.Validate">
+            <summary>
+            Validates the instance, declared and stated profiles for consistenty.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Validation.ProfilePreprocessor.GenerateSnapshots(System.Collections.Generic.IEnumerable{Hl7.Fhir.Model.StructureDefinition},System.Action{Hl7.Fhir.Model.StructureDefinition},System.String)">
+            <summary>
+            Generate snapshots for all StructureDefinitions available to the preprocessor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Hl7.Fhir.Validation.ProfilePreprocessor.CreateNavigators(System.Collections.Generic.IEnumerable{Hl7.Fhir.Model.StructureDefinition})">
+            <summary>
+            Generate navigators for all StructureDefinitions with snapshots available to the preprocessor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Hl7.Fhir.Validation.XmlValidationExtensions">
+            <summary>
+            Add support for validating against Base subclasses (instead of IElementNavigator) to the Validator
+            </summary>
+        </member>
+        <member name="T:Hl7.Fhir.Validation.PocoValidationExtensions">
+            <summary>
+            Add support for validating against Base subclasses (instead of IElementNavigator) to the Validator
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Validation.ValidationSettings.GenerateSnapshot">
+            <summary>
+            The validator needs StructureDefinitions to have a snapshot form to function. If a StructureDefinition
+            without a snapshot is encountered, should the validator generate the snapshot from the differential
+            present in the StructureDefinition? Default is 'false'.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Validation.ValidationSettings.GenerateSnapshotSettings">
+            <summary>
+            If GenerateSnapshot is set to 'true', these settings will allow the user to configure how
+            snapshot generation is done.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Validation.ValidationSettings.Trace">
+            <summary>
+            Include informational tracing information in the validation output. Useful for debugging purposes. Default is 'false'.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Validation.ValidationSettings.SkipConstraintValidation">
+            <summary>
+            StructureDefinition may contain FluentPath constraints to enfore invariants in the data that cannot
+            be expresses using StructureDefinition alone. This validation can be turned off for performance or
+            debugging purposes. Default is 'false'.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Validation.ValidationSettings.ResolveExteralReferences">
+            <summary>
+            If a reference is encountered that references to a resource outside of the current instance being validated,
+            this setting controls whether the validator will call out to the ResourceResolver to try to resolve the
+            external reference. Note: References that refer to resources inside the current instance (i.e.
+            contained resources, Bundle entries) will always be followed and validated.
+            </summary>
+        </member>
+        <member name="P:Hl7.Fhir.Validation.ValidationSettings.EnableXsdValidation">
+            <summary>
+            If set to true (and the XDocument specific overloads of validate() are used), the validator will run
+            .NET XSD validation prior to running profile validation
+            </summary>
+        </member>
+    </members>
+</doc>
