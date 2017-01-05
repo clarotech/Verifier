@@ -117,9 +117,6 @@
             <param name="type">The type.</param>
             <returns>The type of the typed collection's items.</returns>
         </member>
-        <member name="M:Hl7.Fhir.Support.Issue.Create(System.Int32,Hl7.Fhir.Model.OperationOutcome.IssueSeverity,Hl7.Fhir.Model.OperationOutcome.IssueType)">
-            <summary>Factory method.</summary>
-        </member>
         <member name="M:Hl7.Fhir.Specification.Snapshot.SnapshotGenerator.GenerateSnapshotBaseComponents(Hl7.Fhir.Model.StructureDefinition,System.Boolean)">
             <summary>Initialize the <see cref="P:Hl7.Fhir.Model.ElementDefinition.Base"/> components of the <see cref="P:Hl7.Fhir.Model.StructureDefinition.Snapshot"/> component.</summary>
             <param name="structureDef">A <see cref="T:Hl7.Fhir.Model.StructureDefinition"/> instance with a valid snapshot component.</param>
@@ -370,10 +367,12 @@
             influence on the final snapshot form.
             </summary>
         </member>
-        <member name="M:Hl7.Fhir.Specification.Snapshot.DifferentialTreeConstructor.MakeTree(System.Collections.Generic.List{Hl7.Fhir.Model.ElementDefinition})">
-            <summary>Create a valid tree structure from a sparse differential element list by adding missing parent element definitions.</summary>
-            <returns>A tree structure representing the differential component.</returns>
-            <remarks>This method returns a new list of element definitions. The input elements list is not modified.</remarks>
+        <member name="M:Hl7.Fhir.Specification.Snapshot.DifferentialTreeConstructor.MakeTree">
+            <summary>
+            Creates a differential structure with all "skipped" parents filled in.
+            </summary>
+            <returns>The full tree structure representing the differential</returns>
+            <remarks>This operation will not touch the source differential, but instead will return a new structure.</remarks>
         </member>
         <member name="F:Hl7.Fhir.Specification.Snapshot.ElementMatcher.MatchInfo.BaseBookmark">
             <summary>Represents an element in the base profile.</summary>
@@ -420,7 +419,11 @@
             <returns></returns>
         </member>
         <member name="M:Hl7.Fhir.Specification.Snapshot.ElementMatcher.listChoiceElements(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator)">
-            <summary>List all names of nodes in the current navigator that are choice ('[x]') elements.</summary>
+            <summary>
+            List all names of nodes in the current navigator that are choice ('[x]') elements
+            </summary>
+            <param name="snapNav"></param>
+            <returns></returns>
         </member>
         <member name="T:Hl7.Fhir.Specification.Snapshot.SnapshotConstraintEventArgs">
             <summary>Event arguments for the <see cref="T:Hl7.Fhir.Specification.Snapshot.SnapshotConstraintHandler"/> event delegate.</summary>
@@ -505,42 +508,11 @@
             </summary>
         </member>
         <member name="M:Hl7.Fhir.Specification.Source.CachedResolver.#ctor(Hl7.Fhir.Specification.Source.IResourceResolver,System.Int32)">
-            <summary>Artifact resolver decorator to cache loaded resources in memory.</summary>
+            <summary>
+            
+            </summary>
             <param name="source">ArtifactSource that will be used to get data from on a cache miss</param>
             <param name="cacheDuration">Duration before trying to refresh the cache, in seconds</param>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Source.CachedResolver.InvalidateUri(System.String)">
-            <summary>Remove the resource with the specified uri from the cache, if it exists.</summary>
-            <param name="url">The resource uri.</param>
-            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Source.CachedResolver.InvalidateCanonicalUri(System.String)">
-            <summary>Remove the resource with the specified canonical uri from the cache, if it exists.</summary>
-            <param name="url">The canonical resource uri.</param>
-            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Source.CachedResolver.Clear">
-            <summary>Clear the cache by removing all existing cache entries.</summary>
-        </member>
-        <member name="T:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventArgs">
-            <summary>Event arguments for the <see cref="T:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventHandler"/> delegate.</summary>
-        </member>
-        <member name="P:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventArgs.Url">
-            <summary>Returns the url of the cached resource.</summary>
-        </member>
-        <member name="P:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventArgs.Resource">
-            <summary>Returns a reference to the cached resource.</summary>
-        </member>
-        <member name="T:Hl7.Fhir.Specification.Source.CachedResolver.LoadResourceEventHandler">
-            <summary>Handles the <see cref="E:Hl7.Fhir.Specification.Source.CachedResolver.Load"/> event that is fired when a new resources is loaded into the cache.</summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="E:Hl7.Fhir.Specification.Source.CachedResolver.Load">
-            <summary>Occurs when a resource is loaded into the cache.</summary>
-        </member>
-        <member name="P:Hl7.Fhir.Specification.Source.CachedResolver.CacheEntry`1.Expired">
-            <summary>Returns a boolean value that indicates if the cache entry is expired.</summary>
         </member>
         <member name="M:Hl7.Fhir.Specification.Source.IConformanceSource.ListResourceUris(System.Nullable{Hl7.Fhir.Model.ResourceType})">
             <summary>
@@ -589,7 +561,7 @@
             </summary>
             <param name="sources">A custom set of IArtifact sources. Resolving occurs in order of input</param>
         </member>
-        <member name="M:Hl7.Fhir.Specification.Source.ResourceResolverExtensions.FindValueSet(Hl7.Fhir.Specification.Source.IResourceResolver,System.String)">
+        <member name="M:Hl7.Fhir.Specification.Source.ResourceResolverExtensions.FindValueSet(Hl7.Fhir.Specification.Source.IConformanceSource,System.String)">
             <summary>
             Tries to locate a valueset using a combined algorithm: first, the uri is used to find a valueset by system.
             If that fails, the valueset is searched for by canonical url. Failing that, the function tries to locate the
@@ -739,17 +711,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Hl7.Fhir.Specification.Terminology.ITerminologyService.ValidateCode(System.String,System.String,System.String,System.String,System.Boolean)">
-            <summary>
-            Will check whether the a code is a member of the given valueset.
-            </summary>
-            <param name="uri">Canonical url of the ValueSet (ValueSet.url)</param>
-            <param name="code">Code to check</param>
-            <param name="system">System for the code. Optional.</param>
-            <param name="display">If given, will check whether the given display is valid for the code</param>
-            <param name="abstractAllowed">If true, then an abstract code is allowed to be used in the context of the code that is being validated.</param>
-            <returns></returns>
-        </member>
         <member name="T:Hl7.Fhir.Specification.Navigation.ProfileReference">
             <summary>Represents a reference to an element type profile.</summary>
             <remarks>Useful to parse complex profile references of the form "canonicalUrl#elementName".</remarks>
@@ -818,15 +779,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsSibling(System.String,System.String)">
-            <summary>Determines if the specified element paths represent sibling elements.</summary>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsDirectChildPath(System.String,System.String)">
-            <summary>Determines if the specified child path represent a direct child of the specified parent path.</summary>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsChildPath(System.String,System.String)">
-            <summary>Determines if the specified child path represent a (direct/grand) child of the specified parent path.</summary>
-        </member>
         <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsRenamedChoiceElement(System.String,System.String)">
             <summary>Determines if an element name matches a choice element name in the base profile.</summary>
             <param name="baseName">A base element name.</param>
@@ -843,12 +795,6 @@
             IsCandidateBaseElementPath("Element.id", "Extension.url.id")
             </example>
         </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsRootPath(System.String)">
-            <summary>Determines if the specified element path represents a root element.</summary>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsExtensionPath(System.String)">
-            <summary>Determines if the specified element path represents a (modifier) extension element.</summary>
-        </member>
         <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.GetPathRoot(System.String)">
             <summary>Returns the root component of the specified element path.</summary>
             <param name="path">An element path.</param>
@@ -859,17 +805,6 @@
             <param name="path">An element path.</param>
             <param name="newRoot">The new path root.</param>
             <returns>An element path.</returns>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.IsResliceName(System.String)">
-            <summary>Determines if the specified element name represents a reslice: "slice/reslice".</summary>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator.GetBaseSliceName(System.String)">
-            <summary>Extracts the name of the base slice from a reslicing constraint name.</summary>
-            <returns>The name of the base slice, or <c>null</c>.</returns>
-            <example>
-            <code>GetBaseSliceName("slice/reslice")</code>
-            Returns: "slice"
-            </example>
         </member>
         <member name="M:Hl7.Fhir.Specification.Navigation.NavModificationExtensions.CopyChildren(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator)">
             <summary>
@@ -895,18 +830,9 @@
             <summary>Determines if the element with the specified name represents a type slice for the current (choice) element.</summary>
             <returns><c>true</c> if the element name represents a type slice of the current element, <c>false</c> otherwise.</returns>
         </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToLastSlice(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
+        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToLastSlice(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator)">
             <summary>Move to last direct child element with same path as current element.</summary>
-            <param name="nav">An <see cref="T:Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator"/> instance.</param>
-            <param name="sliceName">The optional target slice name, or <c>null</c>. Used for reslicing.</param>
             <returns><c>true</c> if the cursor has moved at least a single element, <c>false</c> otherwise</returns>
-        </member>
-        <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToNextSlice(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
-            <summary>
-            If the current element has the specified name, then maintain position and return true.
-            Otherwise move to the next sibling element with the specified slice name, if it exists.
-            </summary>
-            <returns><c>true</c> if succesful, <c>false</c> otherwise.</returns>
         </member>
         <member name="M:Hl7.Fhir.Specification.Navigation.NamedNavigationExtensions.MoveToPrevious(Hl7.Fhir.Specification.Navigation.ElementDefinitionNavigator,System.String)">
             <summary>Move the navigator to the first preceding sibling element with the specified name, if it exists.</summary>
@@ -976,44 +902,8 @@
             <param name="defn">An <see cref="T:Hl7.Fhir.Model.ElementDefinition"/> instance.</param>
             <returns><c>true</c> if the instance defines a type choice element, or <c>false</c> otherwise.</returns>
         </member>
-        <member name="T:Hl7.Fhir.Validation.ElementNavigatorParsingExtensions">
-            <summary>
-            A class to do basic parsing of POCO classes from an IElementNavigator.  Can be replaced by the real
-            IElementNavigator-based PocoParser when we have that piece of infrastructure ready.
-            </summary>
-        </member>
-        <member name="M:Hl7.Fhir.Validation.ElementNavigatorParsingExtensions.ParseBindable(Hl7.ElementModel.IElementNavigator,Hl7.Fhir.Model.FHIRDefinedType)">
-            <summary>
-            Parses a bindeable type into either a Coding (code, Coding, Quantity, string, uri) or CodeableConcept
-            </summary>
-            <param name="instance"></param>
-            <param name="codedType"></param>
-            <returns>An object, which is either a Coding or CodeableConcept</returns>
-        </member>
-        <member name="M:Hl7.Fhir.Validation.ProfileAssertion.Resolve">
-            <summary>
-            Resolves the StructureDefinitions referred to by the given canonicals, and adds them
-            to the list of StructureDefinitions available to the preprocessor
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hl7.Fhir.Validation.ProfileAssertion.Validate">
-            <summary>
-            Validates the instance, declared and stated profiles for consistenty.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hl7.Fhir.Validation.ProfilePreprocessor.GenerateSnapshots(System.Collections.Generic.IEnumerable{Hl7.Fhir.Model.StructureDefinition},System.Action{Hl7.Fhir.Model.StructureDefinition},System.String)">
-            <summary>
-            Generate snapshots for all StructureDefinitions available to the preprocessor
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Hl7.Fhir.Validation.ProfilePreprocessor.CreateNavigators(System.Collections.Generic.IEnumerable{Hl7.Fhir.Model.StructureDefinition})">
-            <summary>
-            Generate navigators for all StructureDefinitions with snapshots available to the preprocessor
-            </summary>
-            <returns></returns>
+        <member name="M:Hl7.Fhir.Validation.Issue.Create(System.Int32,Hl7.Fhir.Model.OperationOutcome.IssueSeverity,Hl7.Fhir.Model.OperationOutcome.IssueType)">
+            <summary>Factory method.</summary>
         </member>
         <member name="T:Hl7.Fhir.Validation.XmlValidationExtensions">
             <summary>

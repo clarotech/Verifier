@@ -6158,10 +6158,9 @@
             </summary>
         </member>
         <member name="M:Hl7.Fhir.Model.ModelInfo.IsCoreModelType(System.String)">
-            <summary>Determines if the specified value represents the name of a core Resource, Datatype or primitive.</summary>
-        </member>
-        <member name="M:Hl7.Fhir.Model.ModelInfo.IsCoreModelTypeUri(System.Uri)">
-            <summary>Determines if the specified value represents the canonical uri of a core Resource, Datatype or primitive.</summary>
+            <summary>
+            Is the given type a core Resource, Datatype or primitive
+            </summary>
         </member>
         <member name="M:Hl7.Fhir.Model.ModelInfo.IsCoreSuperType(Hl7.Fhir.Model.FHIRDefinedType)">
             <summary>
@@ -13144,11 +13143,6 @@
         <member name="P:Hl7.Fhir.Model.NamingSystem.ReplacedBy">
             <summary>
             Use this instead
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Model.NamingSystem.Url">
-            <summary>
-            Will return the (first) preferred UniqueId, or the first UniqueId if there is no preferred UniqueId
             </summary>
         </member>
         <member name="T:Hl7.Fhir.Model.NutritionOrder">
@@ -24231,14 +24225,6 @@
             <param name="pos">Optional line position information for the message</param>
             <returns>The logged <see cref="T:System.Exception"/>.</returns>
         </member>
-        <member name="M:Hl7.Fhir.Support.NullExtensions.IsNullOrEmpty(Hl7.Fhir.Model.Base)">
-            <summary>Determines if the element is <c>null</c> or empty.</summary>
-            <param name="element">A <see cref="T:Hl7.Fhir.Model.Base"/> instance.</param>
-            <returns>
-            Returns <c>true</c> if the element is <c>null</c>, or if all child elements are <c>null</c> or empty.
-            Returns <c>false</c> if the element has one or more non-empty child elements.
-            </returns>
-        </member>
         <member name="T:Hl7.Fhir.Support.ResourceReferenceNotFoundException">
             <summary>
             The exception that is throw when an attempt to resolve an external resource reference fails.
@@ -24544,19 +24530,6 @@
             </summary>
             <remarks>Refer to specification section 2.1.0.5 (Managing Return Content)</remarks>
         </member>
-        <member name="P:Hl7.Fhir.Rest.FhirClient.PreferCompressedResponses">
-            <summary>
-            This will do 2 things:
-            1. Add the header Accept-Encoding: gzip, deflate
-            2. decompress any responses that have Content-Encoding: gzip (or deflate)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Rest.FhirClient.CompressRequestBody">
-            <summary>
-            Compress any Request bodies 
-            (warning, if a server does not handle compressed requests you will get a 415 response)
-            </summary>
-        </member>
         <member name="P:Hl7.Fhir.Rest.FhirClient.LastResult">
             <summary>
             The last transaction result that was executed on this connection to the FHIR server
@@ -24781,19 +24754,6 @@
             </summary>
             <remarks>You cannot read the body from the HttpWebResponse, since it has
             already been read by the framework. Use the body parameter instead.</remarks>
-        </member>
-        <member name="P:Hl7.Fhir.Rest.Requester.PreferCompressedResponses">
-            <summary>
-            This will do 2 things:
-            1. Add the header Accept-Encoding: gzip, deflate
-            2. decompress any responses that have Content-Encoding: gzip (or deflate)
-            </summary>
-        </member>
-        <member name="P:Hl7.Fhir.Rest.Requester.CompressRequestBody">
-            <summary>
-            Compress any Request bodies 
-            (warning, if a server does not handle compressed requests you will get a 415 response)
-            </summary>
         </member>
         <member name="M:Hl7.Fhir.Rest.Requester.httpNonSuccessStatusToException(System.Net.HttpStatusCode,Hl7.Fhir.Model.Resource)">
             <summary>
