@@ -92,8 +92,8 @@ namespace Clarotech.Verifier
 
         private void btnOpenProfileDir_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(txtProfileDirectory.Text))
-            {
+            //if (!String.IsNullOrEmpty(txtProfileDirectory.Text))
+            //{
                 folderBrowserDialog = new FolderBrowserDialog();
                 folderBrowserDialog.SelectedPath = txtProfileDirectory.Text;
                 folderBrowserDialog.Description = "Select folder containing the profiles";
@@ -102,7 +102,7 @@ namespace Clarotech.Verifier
 
                 if (result == DialogResult.OK)
                     txtProfileDirectory.Text = folderBrowserDialog.SelectedPath;
-            }
+            //}
         }
 
         private void btnOpenExampleDir_Click(object sender, EventArgs e)
