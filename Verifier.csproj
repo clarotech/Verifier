@@ -32,17 +32,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Hl7.Fhir.DSTU2.Core, Version=0.90.6.8, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hl7.Fhir.DSTU2.Core, Version=0.92.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>libraries\Hl7.Fhir.DSTU2.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.Fhir.DSTU2.Specification, Version=0.90.6.8, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Hl7.Fhir.DSTU2.Specification, Version=0.92.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>libraries\Hl7.Fhir.DSTU2.Specification.dll</HintPath>
     </Reference>
-    <Reference Include="Hl7.FluentPath, Version=0.3.1.0, Culture=neutral, PublicKeyToken=d706911480550fc3, processorArchitecture=MSIL">
-      <HintPath>packages\Hl7.FluentPath.0.3.1-alpha7\lib\net45\Hl7.FluentPath.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Hl7.Fhir.Support, Version=0.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\Hl7.Fhir.Support.dll</HintPath>
+    </Reference>
+    <Reference Include="Hl7.FhirPath, Version=0.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\Hl7.FhirPath.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

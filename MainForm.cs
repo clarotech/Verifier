@@ -3,6 +3,7 @@ using Clarotech.Verifier.Properties;
 using Hl7.Fhir.Model;
 using Hl7.Fhir.Serialization;
 using Hl7.Fhir.Specification.Source;
+using Hl7.Fhir.Utility;
 using Hl7.Fhir.Validation;
 using System;
 using System.Collections.Generic;
@@ -208,6 +209,9 @@ namespace Clarotech.Verifier
 
         private void btnValidate_Click(object sender, EventArgs e)
         {
+
+            refreshProfileSource();
+
             // The validator generates an OperationOutcome as output;
             result = null;
 
@@ -295,9 +299,10 @@ namespace Clarotech.Verifier
                             break;
                         default:
                             img = 0;
-
+                            show = true;
                             break;
                     }
+                    if (item.Details.Text.Contains("FhirPath expression")) show = false;
 
                     if (show)
                     {
